@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+	list-style-type: none;
+	color: blue;
+}
+
+div.num {
+	color: red;
+}
+
+div.num2 {
+	text-align: right;
+	color: blue;
+	width: 30px;
+}
+</style>
+<script>
+	function count() {
+		var n = document.getElementById("top").value;
+		var i = 1;
+		var across = "";
+		var down = "";
+		var pad;
+
+		while (i <= n) {
+			across += (i + ", ");
+			down += ("<li><div class='num2'>" + i + "</div></li>");
+			i++;
+		}
+		across = across.substring(0, across.length - 2);
+		document.getElementById("thisway").innerHTML = across;
+		document.getElementById('thatway').innerHTML = down;
+	}
+</script>
+</head>
+<body>
+	<h2>JavaScript Can Count</h2>
+	<p>Please input a number</p>
+	<input id="top">
+	<button type="button" onclick="count()">Submit</button>
+	<br />
+	<h3>across</h3>
+	<div id="thisway" class="num"></div>
+	<br />
+	<h3>down</h3>
+	<ul id="thatway">
+	</ul>
+</body>
+</html>
