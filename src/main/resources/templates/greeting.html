@@ -1,32 +1,108 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<script type="text/javascript" src="resources/js/hello.js"></script>
+   <script type="text/javascript" src="resources/js/hello.js"></script>
 </meta>
 <title>Demo</title>
 </head>
 <body>
 
-	<p th:text="'Hello, ' + ${name} + '!'" />
+ <p th:text="'Hello, ' + ${name} + '!'" />
 
-	<div class="container">
-		<div class="form-group form">
-			<form action='/greeting' method="post">
-				<div>
-					<label> Enter Number : </label> <input type="text" id="inputId"
-						name="inputId" placeholder=" Input Number" class="form-control" />
-				</div>
-				<button id="submitButton" class="form-control">Submit</button>
+<div class="container">
+<div class = "form-group form">
+<form action='/greeting' method="post">
+<div>
+<label> Enter Number : </label>
+<input type="text" id="inputId" name="inputId" placeholder=" Input Number" class="form-control" />
+</div>
+<button id="submitButton" class="form-control"> Submit </button>
+
+<!-- {@ for(var j=0; j< ${value}.length ; j++){@}
+{@
+  <p th:text="'Hello, ' + ${value} + '!'" />
+@}
+{@ }@} -->
 
 
-			</form>
-		</div>
-	</div>
+
+
+<label>
+Number is :
+</label>
+    <p th:text=" ${value} " />
+
+
+<!-- <div th:each="str,iterStat : value">
+    <span th:text="${str}"/>This will print the index value
+   <span th:text="${iterStat}"/>This will print the Index
+</div> -->
+
+  <tr th:each="message : ${value}">
+        <td th:text="${message}">1</td>
+       
+    </tr> 
+       <!--  var n = ${value}";
+		var across = "";
+		var down = "";
+		var pad;
+		for (var i = 1; i < n.length; i++){
+		down += ("<li><div>" + n[i] + "</div></li>");
+		}
+		document.getElementById('thatway').innerHTML = down; -->
+		
+		<!-- <ul id="thatway">
+	</ul> -->
+
+</form>
+</div>
+</div>
 
 
 </body>
 </html>
+
+
+<!-- <!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <script type="text/javascript" src="resources/js/hello.js"></script>
+</meta>
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>Form</h1>
+    <form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+    	<p>Id: <input type="text" th:field="*{id}" /></p>
+        <p>Number: <input type="text" th:field="*{content}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+
+ <p th:text="'Hello, ' + ${name} + '!'" />
+
+ <div class="container">
+<div class = "form-group form">
+<form action='input' method="put">
+<div>
+<label> Enter Number : </label>
+<input type="text" id="inputId" name="inputId" placeholder=" Input Number" class="form-control" />
+</div>
+<button id="submitButton" class="form-control"> Submit </button>
+ 
+
+</form>
+</div>
+</div> 
+
+
+</body>
+</html> -->
