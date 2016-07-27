@@ -23,40 +23,35 @@ public class ServiceLayer {
    }
 
 }*/
-package com.paurl.Service;
+package com.paurl.service;
 
+import java.util.ArrayList;
+import java.util.List;
 
-import org.json.JSONArray;
 import org.springframework.stereotype.Service;
-
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonAnyFormatVisitor;
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonArrayFormatVisitor;
 
 @Service
 public class ServiceLayer {
 
    // Business logic
-   public String doSomething(String parm) {
-	   JSONArray number = new JSONArray();
-	   for (int i =1 ; i<=Integer.parseInt(parm); i++){
-		   if(i%3 == 0 && i%5 == 0 ){
-			   number.put("fizz buzz");
-		   }
-		   else if(i % 3 == 0){
-			   number.put("fizz");
-		   }
-		   else if(i%5 == 0){
-			   number.put("buzz");
-		   }
-		    else{
-		   number.put(i);
-		    }
-		   
-	   }
-	   
+   public List<String> doSomething(String parm) {
+
+      List<String> list = new ArrayList<>();
+      for (int i = 1; i <= Integer.parseInt(parm); i++) {
+         if (i % 3 == 0 && i % 5 == 0) {
+            list.add("fizz buzz");
+         } else if (i % 3 == 0) {
+            list.add("fizz");
+         } else if (i % 5 == 0) {
+            list.add("buzz");
+         } else {
+            list.add(i + "");
+         }
+
+      }
 
       System.out.println("value is: " + parm);
-      return number.toString();
+      return list;
    }
 
 }
