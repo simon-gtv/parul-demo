@@ -1,5 +1,7 @@
 package com.paurl.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +18,13 @@ public class InitController {
    @Autowired
    private ServiceLayer service;
 
-   @RequestMapping("/greeting")
+   @RequestMapping(value = "/counter", method = RequestMethod.GET)
+   public String counter() {
+
+      return "counter";
+   }
+
+   @RequestMapping(value = "/greeting", method = RequestMethod.GET)
    public String greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String name,
          Model model) {
 
@@ -42,10 +50,11 @@ public class InitController {
       return null;
    }
 
-   @RequestMapping(value = "/greeting", method = RequestMethod.POST)
-   public String simpleInput(@RequestParam(value = "inputId", required = true) String inputId, Model model) {
+   @RequestMapping(value = "/counted", method = RequestMethod.POST)
+   public String simpleInput(@RequestParam(value = "limit", required = true) String limit, Model model) {
 
-      service.doSomething(inputId);
-      return "thank-you";
+      List<Integer> list = service.countTo(limit);
+      model.addAttribute("numbers", list);
+      return "counted";
    }
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript" src="resources/js/hello.js"></script>
+</meta>
+<title>Demo</title>
+</head>
+<body>
+	<p th:text="'List is here: ' + ${numbers} + '!'" />
+	<h1>Result</h1>
+	<ul>
+		<li th:each="item : ${numbers}" th:text="${item}">AAA</li>
+	</ul>
+
+	<br />
+	<br />
+	<a href="/counter">Return</a>
+</body>
+</html>
