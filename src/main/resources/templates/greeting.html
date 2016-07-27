@@ -1,31 +1,31 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" 
-    xmlns:th="http://www.thymeleaf.org" 
-    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-   <script type="text/javascript" src="resources/js/hello.js"></script>
+<script type="text/javascript" src="resources/js/hello.js"></script>
 </meta>
 <title>Demo</title>
 </head>
 <body>
 
- <p th:text="'Hello, ' + ${name} + '!'" />
+	<p th:text="'Hello, ' + ${name} + '!'" />
 
-<div class="container">
-<div class = "form-group form">
-<form action='/greeting' method="post">
-<div>
-<label> Enter Number : </label>
-<input type="text" id="inputId" name="inputId" placeholder=" Input Number" class="form-control" />
-</div>
-<button id="submitButton" class="form-control"> Submit </button>
- 
+	<div class="container">
+		<div class="form-group form">
+			<form action='/greeting' method="post">
+				<div>
+					<label> Enter Number : </label> <input type="text" id="inputId"
+						name="inputId" placeholder=" Input Number" class="form-control" />
+				</div>
+				<button id="submitButton" class="form-control">Submit</button>
 
-</form>
-</div>
-</div>
+
+			</form>
+		</div>
+	</div>
 
 
 </body>
